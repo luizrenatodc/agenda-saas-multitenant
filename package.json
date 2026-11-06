@@ -1,0 +1,11 @@
+{
+  "name": "agenda-saas-multitenant",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning src/principal.ts",
+    "test": "node --disable-warning=ExperimentalWarning --test"
+  }
+}

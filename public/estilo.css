@@ -1,0 +1,40 @@
+:root{--ink:#06070b;--ink2:#0c0f17;--ink3:#121622;--linha:#1c2233;--nevoa:#8d97ad;--neve:#eef2fa;--acento:#a8d8ff;--lilas:#c9b8ff;--ambar:#ffbe5c;--verde:#4ade80;--rosa:#ff7eb6;--vermelho:#ff6b6b}
+*{box-sizing:border-box;margin:0}
+html{color-scheme:dark}
+body{background:var(--ink);color:var(--neve);font:14px/1.5 Inter,"Segoe UI",system-ui,sans-serif;min-height:100vh}
+h1,h2,h3{font-weight:700;letter-spacing:-.01em}
+h2{font-size:13px;color:var(--nevoa);text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:12px}
+code,.mono{font-family:"JetBrains Mono",Consolas,monospace;font-size:12.5px}
+.topo{display:flex;align-items:center;gap:14px;padding:14px 24px;border-bottom:1px solid var(--linha);background:var(--ink2);position:sticky;top:0;z-index:5}
+.topo .marca{font-size:16px;font-weight:800}
+.topo .marca b{color:var(--acento)}
+.topo .sub{color:var(--nevoa);font-size:13px}
+.topo .fim{margin-left:auto;display:flex;gap:10px;align-items:center}
+.pagina{padding:20px 24px;display:grid;gap:16px}
+.grade{display:grid;gap:16px}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.cartao{background:var(--ink2);border:1px solid var(--linha);border-radius:12px;padding:16px;min-width:0}
+.kpi .rotulo{color:var(--nevoa);font-size:12px}
+.kpi .valor{font-size:26px;font-weight:800;margin-top:2px}
+.kpi .nota{color:var(--nevoa);font-size:12px}
+table{width:100%;border-collapse:collapse}
+th{color:var(--nevoa);font-weight:500;font-size:12px;text-align:left;padding:6px 8px;border-bottom:1px solid var(--linha)}
+td{padding:8px;border-bottom:1px solid var(--linha);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.selo{display:inline-block;padding:1px 8px;border-radius:99px;font-size:11.5px;font-weight:600;background:var(--ink3);border:1px solid var(--linha);color:var(--nevoa);white-space:nowrap}
+.selo.ok{color:var(--verde);border-color:#1f5a38;background:#0d2318}
+.selo.alerta{color:var(--ambar);border-color:#6b4f1f;background:#2a1f0c}
+.selo.erro{color:var(--vermelho);border-color:#6b2a2a;background:#2a1010}
+.selo.info{color:var(--acento);border-color:#2b4a66;background:#0f1d2a}
+.selo.lilas{color:var(--lilas);border-color:#463a6b;background:#191430}
+button,.botao{background:var(--acento);color:#06121f;border:0;border-radius:8px;padding:8px 14px;font:600 13px Inter,"Segoe UI",sans-serif;cursor:pointer}
+button.fantasma{background:transparent;color:var(--neve);border:1px solid var(--linha)}
+button.perigo{background:var(--vermelho);color:#1f0505}
+button:disabled{opacity:.5;cursor:default}
+input,select,textarea{background:var(--ink);color:var(--neve);border:1px solid var(--linha);border-radius:8px;padding:8px 10px;font:inherit;width:100%}
+input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid var(--acento);outline-offset:1px}
+.linha{display:flex;gap:10px;align-items:center}
+.nevoa{color:var(--nevoa)}
+.rolagem{overflow:auto}
+@media (max-width:900px){.g2,.g3,.g4{grid-template-columns:1fr 1fr}.pagina{padding:16px}}
+@media (max-width:560px){.g2,.g3,.g4{grid-template-columns:1fr}}

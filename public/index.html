@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agenda SaaS</title>
+<link rel="stylesheet" href="estilo.css">
+<style>
+#entrada{min-height:100vh;display:grid;place-items:center;padding:16px}
+#entrada form{width:min(380px,100%);display:grid;gap:12px}
+#entrada h1{font-size:24px}
+.contas{display:grid;gap:6px}
+.conta{text-align:left;background:var(--ink3);color:var(--neve);border:1px solid var(--linha);font-weight:500}
+.corpo{display:grid;grid-template-columns:1fr 330px;gap:16px;align-items:start}
+.semana{display:grid;grid-template-columns:48px repeat(6,1fr);min-width:760px}
+.dia{text-align:center;padding-bottom:8px;font-weight:600;font-size:12.5px;color:var(--nevoa)}
+.horas{position:relative;height:600px}
+.horas span{position:absolute;right:8px;font-size:11px;color:var(--nevoa);transform:translateY(-50%)}
+.coluna{position:relative;height:600px;border-left:1px solid var(--linha);background:repeating-linear-gradient(var(--linha) 0 1px,transparent 1px 60px)}
+.bloco{position:absolute;border-radius:6px;padding:2px 6px;font-size:11px;line-height:1.25;overflow:hidden;cursor:pointer;border-left:3px solid;color:var(--neve)}
+.bloco small{color:var(--nevoa);display:block}
+.p0{background:#10263a;border-color:var(--acento)}.p1{background:#1d1838;border-color:var(--lilas)}.p2{background:#2c1a28;border-color:var(--rosa)}
+.lista-item{display:flex;justify-content:space-between;gap:8px;padding:7px 0;border-bottom:1px solid var(--linha)}
+.lista-item:last-child{border:0}
+.lista-item .selo{align-self:flex-start;flex:none}
+#fServ,#fCliente{grid-column:1/-1}
+.livres{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;max-height:110px;overflow:auto}
+.livres button{padding:4px 9px;font-size:12px}
+.campos{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+[hidden]{display:none!important}
+@media (max-width:1100px){.corpo{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<section id="entrada">
+  <form class="cartao">
+    <h1>Agenda <span style="color:var(--acento)">SaaS</span></h1>
+    <p class="nevoa">Cada empresa enxerga apenas os próprios dados.</p>
+    <div class="contas" id="contas"></div>
+    <p class="nevoa" id="erro" role="alert"></p>
+  </form>
+</section>
+<div id="app" hidden>
+  <header class="topo">
+    <div class="marca" id="empresa"></div><span class="selo info" id="papel"></span>
+    <div class="fim"><span class="nevoa" id="usuario"></span><button class="fantasma" id="sair">Sair</button></div>
+  </header>
+  <main class="pagina">
+    <section class="grade g4" id="kpis"></section>
+    <section class="corpo">
+      <div class="cartao rolagem"><h2>Semana de 7 a 12 de janeiro</h2><div class="semana" id="semana"></div></div>
+      <div class="grade">
+        <div class="cartao" id="reservar"><h2>Nova reserva</h2>
+          <div class="campos">
+            <select id="fProf" aria-label="Profissional"></select>
+            <select id="fServ" aria-label="Serviço"></select>
+            <select id="fDia" aria-label="Dia"></select>
+            <input id="fCliente" aria-label="Cliente" placeholder="Cliente">
+          </div>
+          <div class="livres" id="livres"></div>
+        </div>
+        <div class="cartao"><h2>Fila de espera</h2><div id="fila"></div></div>
+        <div class="cartao" id="caixaAuditoria"><h2>Auditoria</h2><div id="auditoria"></div></div>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
